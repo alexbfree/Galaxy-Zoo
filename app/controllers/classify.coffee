@@ -56,17 +56,14 @@ class Classify extends Spine.Controller
   render: =>
     return unless @isActive()
     if @subject
-      if Intervention.isInterventionNeeded()
-        @renderIntervention = true
-        @messageToUse = "classify.bgu_ms_exp1_intervention_text_#{Intervention.getNextIntervention()?.preconfigured_id}"
-        @confirmOptOutText = "classify.bgu_ms_exp1_intervention_confirm_opt_out_text"
-        @confirmOptOutButton = "classify.bgu_ms_exp1_intervention_confirm_opt_out_button"
-        @optOutLink = "classify.bgu_ms_exp1_intervention_opt_out_link"
-        @cancelLink = "classify.bgu_ms_exp1_intervention_opt_out_cancel_link"
-        @optedOutLinkText = "classify.bgu_ms_exp1_intervention_opted_out_link_text"
-        Intervention.delay 1000,@showIntervention
-      else
-        @renderIntervention = false
+      @renderIntervention = true
+      @messageToUse = "classify.bgu_ms_exp1_intervention_text_1"
+      @confirmOptOutText = "classify.bgu_ms_exp1_intervention_confirm_opt_out_text"
+      @confirmOptOutButton = "classify.bgu_ms_exp1_intervention_confirm_opt_out_button"
+      @optOutLink = "classify.bgu_ms_exp1_intervention_opt_out_link"
+      @cancelLink = "classify.bgu_ms_exp1_intervention_opt_out_cancel_link"
+      @optedOutLinkText = "classify.bgu_ms_exp1_intervention_opted_out_link_text"
+      Intervention.delay 1000,@showIntervention
       @html require('views/classify')(@)
     else
       @html '''
