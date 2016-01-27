@@ -86,11 +86,10 @@ class Classify extends Spine.Controller
         new LoginForm el: '.login-prompt .login'
 
   showIntervention: =>
-    if !@interventionAlreadyPresent
-      $('.intervention').effect("slide",{"direction":"right","mode":"show"},1000)
-      @interventionAlreadyPresent = true
-      Intervention.delay Intervention.getNextIntervention()?.presentation_duration * 1000, @completeIntervention
-      Intervention.logInterventionDelivered()
+    $('.intervention').effect("slide",{"direction":"right","mode":"show"},1000)
+    @interventionAlreadyPresent = true
+    Intervention.delay Intervention.getNextIntervention()?.presentation_duration * 1000, @completeIntervention
+    Intervention.logInterventionDelivered()
 
   clickOptOut: (e) =>
     if $("#intervention-opt-out").data("confirm-needed")
