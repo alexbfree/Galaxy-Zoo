@@ -131,14 +131,10 @@ class Classify extends Spine.Controller
     @renderIntervention = false
     @interventionAlreadyPresent = false
     Intervention.logInterventionDismissed()
-    $('.intervention').effect("slide",{"direction":"right","mode":"hide"},1000)
 
   completeIntervention: () =>
     @reRenderIntervention()
     Intervention.logInterventionCompleted()
-    if @interventionAlreadyPresent
-      $('.intervention').effect("slide",{"direction":"right","mode":"hide"},1000)
-      @interventionAlreadyPresent = false
 
   exitToTalk: () =>
     Intervention.exitToTalk()
